@@ -1,0 +1,143 @@
+.modal {
+  height: 0;
+  opacity: 0;
+  overflow: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.show {
+  height: 100%;
+  opacity: 1;
+}
+.modal-content {
+  width: 80%;
+  height: auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #373737;
+  color: #303030;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  text-transform: capitalize;
+  font-size: 12px;
+}
+@media screen and (max-width: 900px) {
+  .principal {
+    margin-bottom: 30px;
+  }
+  .stats {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 580px) {
+  .modal-content {
+    width: 80%;
+    font-size: 10px;
+  }
+  .principal {
+    margin-bottom: 15px;
+    align-items: center;
+    width: 100%;
+    height: 220px;
+    margin-top: -100px;
+  }
+  .principal img {
+    transform: scale(0.5);
+  }
+  .modalTypes {
+    margin-top: 5px;
+  }
+  .data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .abilities {
+    width: 100%;
+    margin-bottom: -125px;
+  }
+  .hw-eight {
+    width: 100%;
+  }
+  .title {
+    transform: scale(0.8);
+    align-self: center;
+  }
+  .close {
+    transform: scale(1.5);
+  }
+}
+.principal {
+  text-align: center;
+  font-size: 16px;
+}
+.principal img {
+  width: 192px;
+  height: 192px;
+}
+.modalTypes {
+  margin-top: 3px;
+  display: flex;
+  justify-content: center;
+}
+.data {
+  height: 100%;
+  align-self: start;
+}
+.abilities {
+  display: flex;
+  flex-direction: column;
+}
+.hw-eight {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50%;
+}
+.hw-eight span {
+  margin-bottom: 5px;
+}
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+}
+.stats section {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.valueStat {
+  color: darkgoldenrod;
+}
+.title {
+  font-size: 16px;
+  color: darkgoldenrod;
+  margin-bottom: 5%;
+}
+
+.close {
+  color: #373737;
+  align-self: start;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
