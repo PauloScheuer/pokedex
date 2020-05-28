@@ -37,7 +37,6 @@ header {
 }
 #search {
   font-size: 18px;
-
   font-family: 'Press Start 2P', cursive;
   width: 80%;
   padding: 10px;
@@ -180,6 +179,7 @@ header {
 @media screen and (max-width: 580px) {
   #search {
     height: 50px;
+    padding: 0 10px 0 10px;
   }
   #submit {
     width: 80%;

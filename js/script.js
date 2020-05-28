@@ -21,14 +21,13 @@ window.addEventListener('load', () => {
   load = document.querySelector('#load');
 
   searchInput.focus();
-  searchInput.addEventListener('touchstart', () => {
+  searchInput.addEventListener('tap', () => {
     searchInput.focus();
   });
 
   window.addEventListener('click', (event) => {
     if (event.target == modal) {
       modal.classList.remove("show");
-      searchInput.focus();
     }
   });
 
