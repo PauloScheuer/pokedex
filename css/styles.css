@@ -62,6 +62,9 @@ header {
   background-color: darkgoldenrod;
   border-color: darkgoldenrod;
 }
+.blocked {
+  cursor: not-allowed !important;
+}
 #results {
   display: flex;
   flex-wrap: wrap;

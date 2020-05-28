@@ -15,6 +15,7 @@ let load = null;
 window.addEventListener('load', () => {
   searchInput = document.querySelector('#search');
   searchForm = document.querySelector('#form');
+  searchSubmit = document.querySelector('#submit');
   results = document.querySelector('#results');
   modal = document.querySelector('#myModal');
   modalContent = document.querySelector('#modalC');
@@ -168,6 +169,8 @@ function render(param) {
   });
 
   load.style.display = "none";
+  searchInput.classList.remove("blocked");
+  searchSubmit.classList.remove("blocked");
 }
 
 function format(num) {
