@@ -118,13 +118,13 @@ function render(param) {
         <section class="abilities">
         <span class="title">Abilities</span>
         ${poke.abilities.map(_ab => {
-        return `<span>${_ab.ability.name}</span>`;
+        return `<span class="info">${_ab.ability.name}</span>`;
       }).join('')}
         </section>
         <section class="hw-eight">
         <span class="title">Characteristics</span>
-        <span>height: ${poke.height}&nbspm</span>
-        <span>weight: ${poke.weight}&nbspkg</span>
+        <span class="info">height: ${poke.height}&nbspm</span>
+        <span class="info">weight: ${poke.weight}&nbspkg</span>
         </section>
         </section>
 

@@ -63,10 +63,10 @@
   }
   .abilities {
     width: 100%;
-    margin-bottom: -125px;
   }
   .hw-eight {
     width: 100%;
+    margin-top: 5% !important;
   }
   .title {
     transform: scale(0.8);
@@ -93,6 +93,10 @@
   height: 100%;
   align-self: start;
 }
+.data .info {
+  margin-bottom: 5px;
+}
+
 .abilities {
   display: flex;
   flex-direction: column;
@@ -101,9 +105,6 @@
   display: flex;
   flex-direction: column;
   margin-top: 50%;
-}
-.hw-eight span {
-  margin-bottom: 5px;
 }
 .stats {
   display: flex;
