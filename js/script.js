@@ -59,11 +59,9 @@ async function doFetch() {
   const generalRes = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=807');
   const generalJson = await generalRes.json();
   allPokemon = generalJson.results;
-  //tentar trocar por foreach
-  for (let i = 0; i < allPokemon.length; i++) {
-    const data = await getData(allPokemon[i].url);
-    allPokemon[i] = data;
-  }
+  allPokemon = allPokemon.map(async poke => {
+    poke = await getData(poke.url);
+  });
   localStorage.setItem('dofetch', true);
   localStorage.setItem('allPokemon', JSON.stringify(allPokemon));
   render(allPokemon);
