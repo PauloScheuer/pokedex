@@ -74,6 +74,7 @@
   .title {
     transform: scale(0.8);
     align-self: center;
+    margin-bottom: 2% !important;
   }
   .close {
     transform: scale(1.5);
