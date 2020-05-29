@@ -6,6 +6,7 @@ let numberFormat = null;
 //variaveis com elementos
 let searchInput = null;
 let searchSubmit = null;
+let searchForm = null;
 let results = null
 let modal = null;
 let modalContent = null;
