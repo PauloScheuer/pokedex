@@ -44,12 +44,15 @@
   .modal-content {
     width: 80%;
     font-size: 10px;
+    padding-bottom: 0;
   }
   .principal {
+    margin-top: -42px;
     margin-bottom: 15px;
     align-items: center;
     width: 100%;
   }
+
   .modalTypes {
     margin-top: 5px;
   }
