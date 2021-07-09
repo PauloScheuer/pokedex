@@ -3,7 +3,7 @@ let searchValue = null;
 let allPokemon = [];
 let numberFormat = null;
 let offset = 0;
-let limit = 100;
+let limit = 25;
 
 //variaveis com elementos
 let searchInput = null;
