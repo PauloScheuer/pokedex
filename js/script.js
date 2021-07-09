@@ -2,6 +2,8 @@
 let searchValue = null;
 let allPokemon = [];
 let numberFormat = null;
+let offset = 0;
+let limit = 100;
 
 //variaveis com elementos
 let searchInput = null;
@@ -11,6 +13,9 @@ let results = null
 let modal = null;
 let modalContent = null;
 let load = null;
+
+//constantes
+const maxOffset = 898;
 
 
 window.addEventListener('load', () => {
@@ -33,18 +38,26 @@ window.addEventListener('load', () => {
     }
   });
 
+  window.addEventListener(
+    'scroll',
+    function () {
+      let scrollTop = document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      let offsetHeight = document.body.offsetHeight;
+      let clientHeight = document.documentElement.clientHeight;
+      if (offsetHeight <= scrollTop + clientHeight && allPokemon.length < maxOffset) {
+        doFetch()
+      }
+    },
+    false
+  );
+
   numberFormat = Intl.NumberFormat('pt-BR', {
     minimumIntegerDigits: 3
   })
 
   searchForm.addEventListener('submit', doSearch);
-  //evita uma repetição de requisições
-  if (localStorage.getItem('dofetch') !== 'true') {
-    doFetch();
-  } else {
-    allPokemon = JSON.parse(localStorage.getItem('allPokemon'));
-    render(allPokemon);
-  }
+  doFetch();
 });
 
 function doSearch(event) {
@@ -56,14 +69,16 @@ function doSearch(event) {
   render(filterPokemon);
 }
 async function doFetch() {
-  const generalRes = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=807');
+  if (maxOffset - offset < limit) {
+    limit = maxOffset - offset;
+  }
+  const generalRes = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`);
+  offset += limit;
   const generalJson = await generalRes.json();
-  allPokemon = generalJson.results;
-  allPokemon = allPokemon.map(async poke => {
+  for await (let poke of generalJson.results) {
     poke = await getData(poke.url);
-  });
-  localStorage.setItem('dofetch', true);
-  localStorage.setItem('allPokemon', JSON.stringify(allPokemon));
+    allPokemon.push(poke);
+  }
   render(allPokemon);
 }
 
@@ -147,7 +162,6 @@ function render(param) {
     if (poke.sprite === null) {
       poke.sprite = 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg';
     }
-
     //html da div
     div.innerHTML = `
     <section class='leftPoke'>
